@@ -37,13 +37,6 @@ public final class Main {
   private String[] args;
 
   private Main(String[] args) {
-    private static class AutocorrectHandler implements TemplateViewRoute(){
-
-      public ModelAndView handle(Request req, Response res){
-        return new ModelAndView(null, "main.ftl");
-
-      }
-    }
     this.args = args;
   }
 
@@ -152,6 +145,12 @@ public final class Main {
    *  @return ModelAndView to render.
    *  (autocorrect.ftl).
    */
+  private static class AutocorrectHandler implements TemplateViewRoute(){
+    public ModelAndView handle(Request req, Response res){
+      return new ModelAndView(null, "main.ftl");
+
+    }
+  }
 
   /**
    *  IMPLEMENT SubmitHandler HERE
