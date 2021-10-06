@@ -37,6 +37,13 @@ public final class Main {
   private String[] args;
 
   private Main(String[] args) {
+    private static class AutocorrectHandler implements TemplateViewRoute(){
+
+      public ModelAndView handle(Request req, Response res){
+        return new ModelAndView(null, "main.ftl");
+
+      }
+    }
     this.args = args;
   }
 
@@ -114,7 +121,11 @@ public final class Main {
    * * IMPLEMENT METHOD runSparkServer() HERE
    */
   private void runSparkServer(int port) {
-    // TODO
+    Spark.port(port);
+    Spark.externalStaticFileLocation("src/main/resources/static");
+    Spark.exception(Exception.class, new ExceptionPrinter());
+    FreeMarkerEngine freeMarker = createEngine();
+    Spark.get("/autocorrect", new AutocorrectHandler(), freeMarker);
   }
 
   /**
