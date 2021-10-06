@@ -8,7 +8,6 @@ import spark.ExceptionHandler;
 import spark.Request;
 import spark.Response;
 import spark.template.freemarker.FreeMarkerEngine;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -145,11 +144,14 @@ public final class Main {
    *  @return ModelAndView to render.
    *  (autocorrect.ftl).
    */
-  private static class AutocorrectHandler implements TemplateViewRoute
-    public ModelAndView handle(Request req, Response res){
-      return new ModelAndView(null, "main.ftl");
+  private static class AutocorrectHandler implements TemplateViewRoute(){
 
+    public ModelAndView handle (Request req, Response res){
+      Map<String, String> variables = ImmutableMap.of("title", "Why A Spoon Contains One Hole", "message", "If A cup has one hole, and a cup attached to a ruler has one hole; then, a ladel must have one hole too.");
+
+      return new ModelAndView(variables, "autocorrect.ftl");
     }
+  }
 
   /**
    *  IMPLEMENT SubmitHandler HERE

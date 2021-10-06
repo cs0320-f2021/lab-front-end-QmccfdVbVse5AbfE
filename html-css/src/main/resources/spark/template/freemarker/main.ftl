@@ -1,7 +1,7 @@
 <!DOCTYPE html>
   <head>
     <meta charset="utf-8">
-    <title>Title</title>
+    <title>${title}</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <!-- In real-world webapps, css is usually minified and
          concatenated. Here, separate normalize from our code, and
@@ -14,7 +14,7 @@
        <!-- Again, we're serving up the unminified source for clarity. -->
      <script src="js/jquery-2.1.1.js"></script>
   <h1>
-      AUTOCORRECT
+      AUTOCORRECT ${content}
   </h1>
      <script src="js/main.js"></script>
   </body>
